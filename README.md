@@ -25,5 +25,5 @@ I want to conditional this out when it runs on the github cloud
 ### Four 
 Run act locally
 ```bash
-act -s AZURE_CREDENTIALS --env-file my.env  
+act --env-file my.env  
 ``` 
