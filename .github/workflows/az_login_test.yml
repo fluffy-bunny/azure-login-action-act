@@ -15,6 +15,7 @@ jobs:
         echo ${{ env.my_value }}
         echo ${{ env.does_not_exit }}
         echo ${{ secrets.TEST }}
+        echo ${{ secrets.TEST_WITH_VALUE }}
         echo ${{ secrets.AZURE_CREDENTIALS }}
        ## curl -sL https://aka.ms/InstallAzureCLIDeb | bash
 
