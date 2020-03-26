@@ -1,0 +1,15 @@
+name: Azure Login Test Locally
+
+on:
+  [push]
+env:
+  my_value: Hi  
+
+jobs:
+  Azure-Login:
+    runs-on: ubuntu-latest
+    steps:
+    - name: 'az login'
+      uses: azure/login@v1
+      with:
+        creds: ${{ secrets.AZURE_CREDENTIALS }}
