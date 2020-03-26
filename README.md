@@ -4,7 +4,7 @@ Trying to get this to work with [github.com/nektos/act](https://github.com/nekto
 
 ## Steps
 ### One  
-The same credentials that I added in `"project->settings->secrets"`;
+The same credentials that I added in `"project->settings->secrets"`;  
 [github.com/Azure/login](https://github.com/Azure/login)  
 
 ```
