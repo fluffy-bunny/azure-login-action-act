@@ -4,20 +4,27 @@ on:
   [push]
 env:
   my_value: Hi  
- 
+  TEST_WITH_VALUE: ${{ secrets.TEST_WITH_VALUE }}
 jobs:
   Azure-Login:
     runs-on: ubuntu-latest
     steps:
-    - name: 'install az cli'
+    - name: 'Dump Environment Variables'
+      if:  github.actor == 'nektos/act' && secrets.RUN_LOCAL == 'true'
       shell: bash
       run: |
-        echo ${{ env.my_value }}
-        echo ${{ env.does_not_exit }}
-        echo ${{ secrets.TEST }}
-        echo ${{ secrets.TEST_WITH_VALUE }}
-        echo ${{ secrets.AZURE_CREDENTIALS }}
-       ## curl -sL https://aka.ms/InstallAzureCLIDeb | bash
+        echo 'env.my_value:               '${{ env.my_value }}
+        echo 'env.does_not_exit:          '${{ env.does_not_exit }}
+        echo 'env.TEST_WITH_VALUE:        '${{ env.TEST_WITH_VALUE }}
+        echo 'secrets.TEST_WITH_VALUE:    '${{ secrets.TEST_WITH_VALUE }}
+        echo 'secrets.TEST:               '${{ secrets.TEST }}
+        echo 'secrets.AZURE_CREDENTIALS:  '${{ secrets.AZURE_CREDENTIALS }}
+
+    - name: 'install az cli'
+      if: github.actor == 'nektos/act'
+      shell: bash
+      run: |
+        curl -sL https://aka.ms/InstallAzureCLIDeb | bash
 
     - name: 'az login'
       uses: azure/login@v1

@@ -1,3 +1,5 @@
 -s TEST
 -s TEST_WITH_VALUE=hello
 -s AZURE_CREDENTIALS
+-s INSTALL_AZCLI=true
+-s RUN_LOCAL=true
