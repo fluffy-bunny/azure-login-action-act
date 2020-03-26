@@ -18,9 +18,12 @@ Locally I put the same AZURE_CREDENTIALS as an environment variable.
 export AZURE_CREDENTIALS=`{}`
 ```
 ### Three 
+A workflow step needs to install the azurecli.  
+[workflow](.github/workflows/az_login_test.yml)  
+I want to conditional this out when it runs on the github cloud
+ 
+### Four 
 Run act locally
 ```bash
 act -s AZURE_CREDENTIALS
-```  
- 
-
+``` 
