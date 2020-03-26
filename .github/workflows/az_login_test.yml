@@ -5,6 +5,7 @@ on:
 env:
   my_value: Hi  
   TEST_WITH_VALUE: ${{ secrets.TEST_WITH_VALUE }}
+  RUN_LOCAL: ${{ secrets.RUN_LOCAL }}
 jobs:
   Azure-Login:
     runs-on: ubuntu-latest
