@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: 'Dump Environment Variables'
-      if:  github.actor == 'nektos/act' && secrets.RUN_LOCAL == 'true'
+      if:  github.actor == 'nektos/act' && env.RUN_LOCAL == 'true'
       shell: bash
       run: |
         echo 'env.my_value:               '${{ env.my_value }}
