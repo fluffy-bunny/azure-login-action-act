@@ -4,11 +4,20 @@ on:
   [push]
 env:
   my_value: Hi  
-
+ 
 jobs:
   Azure-Login:
     runs-on: ubuntu-latest
     steps:
+    - name: 'install az cli'
+      shell: bash
+      run: |
+        echo ${{ env.my_value }}
+        echo ${{ env.does_not_exit }}
+        echo ${{ secrets.TEST }}
+        echo ${{ secrets.AZURE_CREDENTIALS }}
+       ## curl -sL https://aka.ms/InstallAzureCLIDeb | bash
+
     - name: 'az login'
       uses: azure/login@v1
       with:
